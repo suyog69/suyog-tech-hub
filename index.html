@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suyog Chaudhari | Clean Creator & Tech Hub</title>
+  <title>ITI, RRB ALP & NTPC Question Bank Hub</title>
   <style>
     :root {
       --bg-color: #0b0f19;
@@ -12,157 +12,299 @@
       --text-sub: #9ca3af;
       --accent: #38bdf8;
       --border-color: #1f2937;
+      --success: #22c55e;
+      --danger: #ef4444;
+      --warning: #f59e0b;
     }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
       margin: 0;
-      padding: 20px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
       box-sizing: border-box;
     }
-    .wrapper {
+    .container {
       width: 100%;
-      max-width: 650px;
+      max-width: 720px;
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
     header {
       text-align: center;
-      margin-bottom: 10px;
-    }
-    header h1 {
-      color: var(--accent);
-      margin: 0 0 6px 0;
-      font-size: 1.6rem;
-    }
-    header p {
-      color: var(--text-sub);
-      font-size: 0.88rem;
-      margin: 0;
-    }
-    .section-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
+      background: var(--card-bg);
       padding: 16px;
-    }
-    .section-card h3 {
-      margin: 0 0 12px 0;
-      color: var(--accent);
-      font-size: 1.05rem;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-    }
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
-    }
-    .link-btn {
-      background-color: var(--bg-color);
+      border-radius: 12px;
       border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 10px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.2s ease;
     }
-    .link-btn:hover {
-      border-color: var(--accent);
-      background-color: rgba(56, 189, 248, 0.08);
-      transform: translateY(-1px);
-    }
-    .exam-launch-card {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(34, 197, 94, 0.15));
-      border: 1px solid var(--accent);
+    header h1 { color: var(--accent); margin: 0 0 4px 0; font-size: 1.3rem; }
+    header p { color: var(--text-sub); margin: 0; font-size: 0.82rem; }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      background: var(--card-bg);
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
       text-align: center;
-      padding: 20px;
-      border-radius: 14px;
+      font-size: 0.82rem;
     }
-    .exam-btn {
-      display: inline-block;
+    .stat-val { font-size: 1rem; font-weight: bold; color: var(--accent); display: block; }
+
+    .controls-card {
+      background: var(--card-bg);
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    select {
+      background: var(--bg-color);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      flex: 1;
+    }
+    .btn {
       background: var(--accent);
       color: #0b0f19;
-      font-weight: bold;
-      padding: 12px 24px;
+      border: none;
+      padding: 10px 16px;
       border-radius: 8px;
-      text-decoration: none;
-      margin-top: 10px;
-      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-secondary { background: var(--border-color); color: var(--text-main); }
+
+    .quiz-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    .q-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--warning);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .opt-btn {
+      background: var(--bg-color);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 11px 14px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .opt-btn.correct {
+      background: rgba(34, 197, 94, 0.2) !important;
+      border-color: var(--success) !important;
+      color: #4ade80;
+      font-weight: bold;
+    }
+    .opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: var(--danger) !important;
+      color: #f87171;
+    }
+    .explanation-box {
+      margin-top: 12px;
+      padding: 10px;
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      display: none;
+    }
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
+  <div class="container">
     <header>
-      <h1>⚡ Suyog's Clean Tech Launchpad</h1>
-      <p>Fast, minimalist access to your daily tools & exam preparation hub.</p>
+      <h1>🎯 ITI, RRB ALP & NTPC Exam Hub</h1>
+      <p>Electrician Trade, GK/GS, Science & Maths Practice Questions</p>
     </header>
 
-    <!-- Dedicated Exam Hub Quick Launch Card -->
-    <div class="exam-launch-card">
-      <h3 style="color: var(--accent); margin:0 0 6px 0; font-size: 1.2rem;">🎯 ITI, RRB ALP & NTPC Exam & Numerical Hub</h3>
-      <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0 0 10px 0;">Practice PYQs, GK/GS, and Unlimited Dynamic Maths Numericals.</p>
-      <a href="exam_hub.html" class="exam-btn">Launch Exam Hub 🚀</a>
+    <div class="stats-bar">
+      <div><span class="stat-val" id="attemptedCount">0</span>Attempted</div>
+      <div><span class="stat-val" id="correctCount" style="color: var(--success);">0</span>Correct</div>
+      <div><span class="stat-val" id="accuracyPct">0%</span>Accuracy</div>
     </div>
 
-    <!-- AI & Dev Tools -->
-    <div class="section-card">
-      <h3>🤖 AI & Developer Powerhouse</h3>
-      <div class="links-grid">
-        <a href="https://chatgpt.com/" target="_blank" class="link-btn">ChatGPT <span>➔</span></a>
-        <a href="https://claude.ai/" target="_blank" class="link-btn">Claude AI <span>➔</span></a>
-        <a href="https://aistudio.google.com/" target="_blank" class="link-btn">Google AI Studio <span>➔</span></a>
-        <a href="https://github.com/" target="_blank" class="link-btn">GitHub <span>➔</span></a>
+    <div class="controls-card">
+      <select id="categorySelect" onchange="nextQuestion()">
+        <option value="ALL">🔥 All Subjects Mixed</option>
+        <option value="ITI">⚡ ITI Electrician & ALP CBT-2 Trade</option>
+        <option value="GS">🔬 General Science (Physics/Chem/Bio)</option>
+        <option value="GK">🌍 General Awareness / NTPC GK</option>
+        <option value="MATHS">🧮 Maths & Electrical Numericals</option>
+      </select>
+      <button class="btn" onclick="nextQuestion()">Next ➔</button>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-meta">
+        <span id="qBadge">Category</span>
+        <span id="qSource">PYQ Bank</span>
+      </div>
+      <div class="q-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsBox"></div>
+      <div class="explanation-box" id="explanationBox"></div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" onclick="showAnswer()">💡 Show Answer</button>
+        <button class="btn" onclick="nextQuestion()">Next ➔</button>
       </div>
     </div>
-
-    <!-- Electrical & IoT -->
-    <div class="section-card">
-      <h3>⚡ Electrical & IoT Engineering</h3>
-      <div class="links-grid">
-        <a href="https://wokwi.com/" target="_blank" class="link-btn">Wokwi Simulator <span>➔</span></a>
-        <a href="https://bss.mahadiscom.in/wss/wss" target="_blank" class="link-btn">MSEDCL Portal <span>➔</span></a>
-        <a href="https://electricaldost.online/" target="_blank" class="link-btn">Electrical Dost <span>➔</span></a>
-        <a href="https://www.tinkercad.com/" target="_blank" class="link-btn">Tinkercad Circuits <span>➔</span></a>
-      </div>
-    </div>
-
-    <!-- Creator & Streaming -->
-    <div class="section-card">
-      <h3>🎬 Creator & Streaming Hub</h3>
-      <div class="links-grid">
-        <a href="https://studio.youtube.com/" target="_blank" class="link-btn">YouTube Studio <span>➔</span></a>
-        <a href="https://kick.com/dashboard/stream" target="_blank" class="link-btn">Kick Dashboard <span>➔</span></a>
-        <a href="https://www.canva.com/" target="_blank" class="link-btn">Canva Thumbnails <span>➔</span></a>
-        <a href="https://podcast.adobe.com/enhance" target="_blank" class="link-btn">Adobe Voice Fix <span>➔</span></a>
-      </div>
-    </div>
-
-    <!-- Education Portals -->
-    <div class="section-card">
-      <h3>🎓 Degree & Official Portals</h3>
-      <div class="links-grid">
-        <a href="https://lms.onlinemanipal.com/" target="_blank" class="link-btn">Manipal BCA LMS <span>➔</span></a>
-        <a href="https://ycmou.digitaluniversity.ac/" target="_blank" class="link-btn">YCMOU Portal <span>➔</span></a>
-        <a href="https://ncvtmis.gov.in/" target="_blank" class="link-btn">NCVT MIS Portal <span>➔</span></a>
-        <a href="https://www.freecodecamp.org/" target="_blank" class="link-btn">freeCodeCamp <span>➔</span></a>
-      </div>
-    </div>
-
   </div>
 
+  <script>
+    const questions = [
+      { cat: "ITI", src: "RRB ALP CBT-2", q: "What is the SI unit of Electrical Resistance?", opts: ["Volt", "Ampere", "Ohm", "Watt"], ans: 2, exp: "Resistance unit is Ohm (Ω)." },
+      { cat: "ITI", src: "RRB ALP CBT-2", q: "Which motor is preferred for electric traction due to high starting torque?", opts: ["DC Shunt Motor", "DC Series Motor", "Synchronous Motor", "Stepper Motor"], ans: 1, exp: "DC Series motor provides very high starting torque." },
+      { cat: "ITI", src: "UPPCL TG2", q: "What is the purpose of a breather in a power transformer?", opts: ["To cool the oil", "To absorb moisture from incoming air", "To release pressure", "To filter oil"], ans: 1, exp: "Breather absorbs moisture using Silica Gel." },
+      { cat: "ITI", src: "NCVT PYQ", q: "In a 3-phase induction motor, if frequency is 50 Hz and poles are 4, synchronous speed is:", opts: ["1000 RPM", "1500 RPM", "3000 RPM", "750 RPM"], ans: 1, exp: "Ns = (120 × 50) / 4 = 1500 RPM." },
+      { cat: "GS", src: "RRB ALP CBT-1", q: "Which mirror is used by dentists to see an enlarged image of teeth?", opts: ["Convex Mirror", "Concave Mirror", "Plane Mirror", "Cylindrical Mirror"], ans: 1, exp: "Concave mirror forms magnified virtual images." },
+      { cat: "GS", src: "RRB NTPC GS", q: "What is the chemical formula of Baking Soda?", opts: ["Na2CO3", "NaHCO3", "CaOCl2", "NaOH"], ans: 1, exp: "Sodium Bicarbonate is NaHCO3." },
+      { cat: "GK", src: "RRB NTPC PYQ", q: "Who is known as the 'Father of Indian Railways'?", opts: ["Lord Curzon", "Lord Dalhousie", "Lord Ripon", "Lord Canning"], ans: 1, exp: "Lord Dalhousie introduced the first train in India in 1853." },
+      { cat: "GK", src: "RRB NTPC GK", q: "Which Article deals with the 'Abolition of Untouchability'?", opts: ["Article 15", "Article 16", "Article 17", "Article 18"], ans: 2, exp: "Article 17 abolishes untouchability." }
+    ];
+
+    let currentQuestion = null;
+    let answered = false;
+    let stats = { attempted: 0, correct: 0 };
+
+    function generateMathNumerical() {
+      const i = Math.floor(Math.random() * 15) + 2;
+      const r = Math.floor(Math.random() * 20) + 5;
+      const v = i * r;
+      return {
+        cat: "MATHS", src: "ALP Numerical",
+        q: `A circuit has resistance ${r} Ω and current ${i} A. Find applied voltage (V).`,
+        opts: [`${v} V`, `${v + 10} V`, `${v - 5} V`, `${i + r} V`].sort(() => Math.random() - 0.5),
+        ans: 0, exp: `Ohm's Law: V = I × R = ${i} × ${r} = ${v} Volts.`
+      };
+    }
+
+    function nextQuestion() {
+      answered = false;
+      document.getElementById('explanationBox').style.display = 'none';
+      const cat = document.getElementById('categorySelect').value;
+
+      if (cat === "MATHS") {
+        currentQuestion = generateMathNumerical();
+      } else if (cat === "ALL") {
+        if (Math.random() < 0.7) {
+          currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+        } else {
+          currentQuestion = generateMathNumerical();
+        }
+      } else {
+        const filtered = questions.filter(item => item.cat === cat);
+        currentQuestion = filtered[Math.floor(Math.random() * filtered.length)] || questions[0];
+      }
+
+      renderQuestion(currentQuestion);
+    }
+
+    function renderQuestion(qObj) {
+      document.getElementById('qBadge').textContent = `Subject: ${qObj.cat}`;
+      document.getElementById('qSource').textContent = qObj.src;
+      document.getElementById('questionText').textContent = qObj.q;
+
+      const optionsBox = document.getElementById('optionsBox');
+      optionsBox.innerHTML = '';
+
+      qObj.opts.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.textContent = `${String.fromCharCode(65 + idx)}. ${optText}`;
+        btn.onclick = () => checkAnswer(idx, btn);
+        optionsBox.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(idx, btn) {
+      if (answered) return;
+      answered = true;
+      stats.attempted++;
+
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(b => b.disabled = true);
+
+      if (idx === currentQuestion.ans) {
+        btn.classList.add('correct');
+        stats.correct++;
+      } else {
+        btn.classList.add('wrong');
+        allBtns[currentQuestion.ans].classList.add('correct');
+      }
+
+      showExplanation();
+      updateStats();
+    }
+
+    function showAnswer() {
+      if (answered) return;
+      answered = true;
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(b => b.disabled = true);
+      allBtns[currentQuestion.ans].classList.add('correct');
+      showExplanation();
+    }
+
+    function showExplanation() {
+      const expBox = document.getElementById('explanationBox');
+      expBox.innerHTML = `<strong>Explanation:</strong> ${currentQuestion.exp}`;
+      expBox.style.display = 'block';
+    }
+
+    function updateStats() {
+      document.getElementById('attemptedCount').textContent = stats.attempted;
+      document.getElementById('correctCount').textContent = stats.correct;
+      const pct = stats.attempted > 0 ? Math.round((stats.correct / stats.attempted) * 100) : 0;
+      document.getElementById('accuracyPct').textContent = `${pct}%`;
+    }
+
+    window.onload = nextQuestion;
+  </script>
 </body>
-</html>s
+</html>
