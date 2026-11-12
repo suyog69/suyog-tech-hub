@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suyog Chaudhari | Clean Creator & Tech Hub</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --text-main: #f9fafb;
+      --text-sub: #9ca3af;
+      --accent: #38bdf8;
+      --border-color: #1f2937;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .wrapper {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      color: var(--accent);
+      margin: 0 0 6px 0;
+      font-size: 1.6rem;
+    }
+    header p {
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+    .section-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .section-card h3 {
+      margin: 0 0 12px 0;
+      color: var(--accent);
+      font-size: 1.05rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .link-btn {
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .link-btn:hover {
+      border-color: var(--accent);
+      background-color: rgba(56, 189, 248, 0.08);
+      transform: translateY(-1px);
+    }
+    .exam-launch-card {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(34, 197, 94, 0.15));
+      border: 1px solid var(--accent);
+      text-align: center;
+      padding: 20px;
+      border-radius: 14px;
+    }
+    .exam-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0b0f19;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1>⚡ Suyog's Clean Tech Launchpad</h1>
+      <p>Fast, minimalist access to your daily tools & exam preparation hub.</p>
+    </header>
+
+    <!-- Dedicated Exam Hub Quick Launch Card -->
+    <div class="exam-launch-card">
+      <h3 style="color: var(--accent); margin:0 0 6px 0; font-size: 1.2rem;">🎯 ITI, RRB ALP & NTPC Exam & Numerical Hub</h3>
+      <p style="font-size: 0.85rem; color: var(--text-sub); margin: 0 0 10px 0;">Practice PYQs, GK/GS, and Unlimited Dynamic Maths Numericals.</p>
+      <a href="exam_hub.html" class="exam-btn">Launch Exam Hub 🚀</a>
+    </div>
+
+    <!-- AI & Dev Tools -->
+    <div class="section-card">
+      <h3>🤖 AI & Developer Powerhouse</h3>
+      <div class="links-grid">
+        <a href="https://chatgpt.com/" target="_blank" class="link-btn">ChatGPT <span>➔</span></a>
+        <a href="https://claude.ai/" target="_blank" class="link-btn">Claude AI <span>➔</span></a>
+        <a href="https://aistudio.google.com/" target="_blank" class="link-btn">Google AI Studio <span>➔</span></a>
+        <a href="https://github.com/" target="_blank" class="link-btn">GitHub <span>➔</span></a>
+      </div>
+    </div>
+
+    <!-- Electrical & IoT -->
+    <div class="section-card">
+      <h3>⚡ Electrical & IoT Engineering</h3>
+      <div class="links-grid">
+        <a href="https://wokwi.com/" target="_blank" class="link-btn">Wokwi Simulator <span>➔</span></a>
+        <a href="https://bss.mahadiscom.in/wss/wss" target="_blank" class="link-btn">MSEDCL Portal <span>➔</span></a>
+        <a href="https://electricaldost.online/" target="_blank" class="link-btn">Electrical Dost <span>➔</span></a>
+        <a href="https://www.tinkercad.com/" target="_blank" class="link-btn">Tinkercad Circuits <span>➔</span></a>
+      </div>
+    </div>
+
+    <!-- Creator & Streaming -->
+    <div class="section-card">
+      <h3>🎬 Creator & Streaming Hub</h3>
+      <div class="links-grid">
+        <a href="https://studio.youtube.com/" target="_blank" class="link-btn">YouTube Studio <span>➔</span></a>
+        <a href="https://kick.com/dashboard/stream" target="_blank" class="link-btn">Kick Dashboard <span>➔</span></a>
+        <a href="https://www.canva.com/" target="_blank" class="link-btn">Canva Thumbnails <span>➔</span></a>
+        <a href="https://podcast.adobe.com/enhance" target="_blank" class="link-btn">Adobe Voice Fix <span>➔</span></a>
+      </div>
+    </div>
+
+    <!-- Education Portals -->
+    <div class="section-card">
+      <h3>🎓 Degree & Official Portals</h3>
+      <div class="links-grid">
+        <a href="https://lms.onlinemanipal.com/" target="_blank" class="link-btn">Manipal BCA LMS <span>➔</span></a>
+        <a href="https://ycmou.digitaluniversity.ac/" target="_blank" class="link-btn">YCMOU Portal <span>➔</span></a>
+        <a href="https://ncvtmis.gov.in/" target="_blank" class="link-btn">NCVT MIS Portal <span>➔</span></a>
+        <a href="https://www.freecodecamp.org/" target="_blank" class="link-btn">freeCodeCamp <span>➔</span></a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>s
